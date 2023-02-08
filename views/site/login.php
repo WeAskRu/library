@@ -34,6 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'template' => "<div class=\"offset-lg-1 col-lg-3 custom-control custom-checkbox\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
         ]) ?>
 
+        <br/>
         <div class="form-group">
             <div class="offset-lg-1 col-lg-11">
                 <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>

@@ -1,4 +1,4 @@
-version: '2'
+version: '3.6'
 services:
   php:
     image: yiisoftware/yii2-php:7.4-apache
@@ -7,3 +7,21 @@ services:
       - ./:/app:delegated
     ports:
       - '8000:80'
+
+  mysql:
+    image: mysql:8.0.31
+    restart: always
+    ports:
+      - '3306:3306'
+    depends_on:
+      - php
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: library
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+      TZ: Europe/Moscow
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
